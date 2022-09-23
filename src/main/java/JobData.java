@@ -75,11 +75,13 @@ public class JobData {
 
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
+        String uValue = value.toUpperCase();
+
         for (HashMap<String, String> row : allJobs) {
 
-            String aValue = row.get(column);
+            String aValue = row.get(column).toUpperCase();
 
-            if (aValue.contains(value)) {
+            if (aValue.contains(uValue)) {
                 jobs.add(row);
             }
         }
@@ -99,7 +101,19 @@ public class JobData {
         loadData();
 
         // TODO - implement this method
-        return null;
+        ArrayList<HashMap<String, String>> jobs  = new ArrayList<>();
+        String uValue = value.toUpperCase();
+
+        for (HashMap<String, String> row : allJobs) {
+            for(String aValue : row.values()){
+                if(aValue.toUpperCase().contains(uValue)){
+                    jobs.add(row);
+                    break; //Include entry only once
+                }
+            }
+        }
+
+        return jobs;
     }
 
     /**
