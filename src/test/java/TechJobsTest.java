@@ -60,7 +60,8 @@ public class TechJobsTest {
         String input = "0\n0\nRuby\nx";
         String output = runProgramWithInput(input);
         String expected = getFileContents("src/test/resources/testFindByValue.txt");
-        assertEquals(expected, output);
+        //Updated as per Slack post
+        assertEquals(expected.replaceAll("\r\n?", "\n"), output.replaceAll("\r\n?", "\n"));
     }
 
     @Test
