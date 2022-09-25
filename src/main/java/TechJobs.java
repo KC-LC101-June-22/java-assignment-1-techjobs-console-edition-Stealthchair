@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * Created by LaunchCode
@@ -123,6 +125,9 @@ public class TechJobs {
             System.out.print("No Results");
             return;
         }
+
+        Collections.sort(someJobs, new JobComparator());
+
         for(HashMap<String, String> job: someJobs){
             System.out.print("\n*****");
             for(Map.Entry<String, String>  key: job.entrySet()){

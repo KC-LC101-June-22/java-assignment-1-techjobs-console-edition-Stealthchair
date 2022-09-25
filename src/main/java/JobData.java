@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Collections;
 
 /**
  * Created by LaunchCode
@@ -53,8 +54,10 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
+        java.util.Collection<HashMap<String, String>> safeAllJobs = new ArrayList<>(allJobs);
+
         // Bonus mission; normal version returns allJobs
-        return new ArrayList<>(allJobs);
+        return new ArrayList<>(safeAllJobs);
     }
 
     /**
